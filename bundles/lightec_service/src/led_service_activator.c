@@ -9,7 +9,7 @@ struct activator {
     long svcId;
 };
 
-celix_status_t lightecBndStart(struct activator *act, celix_bundle_context_t *ctx) {
+celix_status_t lightec_bnd_start(struct activator *act, celix_bundle_context_t *ctx) {
     act->svcId = -1L;
     act->led = led_create();
     if (act->led != NULL) {
@@ -18,8 +18,8 @@ celix_status_t lightecBndStart(struct activator *act, celix_bundle_context_t *ct
             logHelper_start(act->led->log_helper);
         }
         act->led_service.handle = act->led;
-        act->led_service.setState = (void*)led_setState;
-        act->led_service.getState = (void*)led_getState;
+        act->led_service.setState = (void*)led_set_state;
+        act->led_service.getState = (void*)led_get_state;
 
         celix_properties_t *properties = celix_properties_create();
         celix_properties_set(properties, OSGI_RSA_SERVICE_EXPORTED_INTERFACES, LED_SERVICE);
@@ -30,7 +30,7 @@ celix_status_t lightecBndStart(struct activator *act, celix_bundle_context_t *ct
     return CELIX_SUCCESS;
 }
 
-celix_status_t lightecBndStop(struct activator *act, celix_bundle_context_t *ctx) {
+celix_status_t lightec_bnd_stop(struct activator *act, celix_bundle_context_t *ctx) {
     celix_bundleContext_unregisterService(ctx, act->svcId);
     if (act->led != NULL) {
         led_destroy(act->led);
@@ -40,4 +40,4 @@ celix_status_t lightecBndStop(struct activator *act, celix_bundle_context_t *ctx
     return CELIX_SUCCESS;
 }
 
-CELIX_GEN_BUNDLE_ACTIVATOR(struct activator, lightecBndStart, lightecBndStop);
+CELIX_GEN_BUNDLE_ACTIVATOR(struct activator, lightec_bnd_start, lightec_bnd_stop);
