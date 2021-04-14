@@ -3,7 +3,7 @@
 
 led_t* led_create(void) {
     struct led *tmp = calloc(1, sizeof(*tmp));
-    tmp->state = false;
+    tmp->state = 0;
     return tmp;
 }
 
@@ -11,7 +11,7 @@ void led_destroy(led_t *led) {
     free(led);
 }
 
-int led_set_state(led_t *led, bool input) {
+int led_set_state(led_t *led, int input) {
     int status = CELIX_SUCCESS;
 
     led->state = input;
@@ -20,7 +20,7 @@ int led_set_state(led_t *led, bool input) {
     return status;
 }
 
-int led_get_state(led_t *led, bool *output) {
+int led_get_state(led_t *led, int *output) {
     int status = CELIX_SUCCESS;
 
     *output = led->state;
