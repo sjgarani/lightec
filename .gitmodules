@@ -1,3 +1,19 @@
 [submodule "bundles/lightec_api"]
 	path = bundles/lightec_api
 	url = https://github.com/sjgarani/lightec_api.git
+[submodule "poky"]
+	path = poky
+	url = git://git.yoctoproject.org/poky
+	branch = dunfell
+[submodule "metas/meta-raspberrypi"]
+	path = metas/meta-raspberrypi
+	url = git://git.yoctoproject.org/meta-raspberrypi
+	branch = dunfell
+[submodule "metas/meta-java"]
+	path = metas/meta-java
+	url = git://git.yoctoproject.org/meta-java
+	branch = dunfell
+[submodule "metas/meta-openembedded"]
+	path = metas/meta-openembedded
+	url = git://git.openembedded.org/meta-openembedded
+	branch = dunfell

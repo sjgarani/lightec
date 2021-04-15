@@ -12,7 +12,7 @@ add_subdirectory(bundles/lightec_service)
 add_celix_container(lightec
     COPY
     BUNDLES
-        Celix::rsa_discovery_configured
+        Celix::rsa_discovery_etcd
         Celix::rsa_topology_manager
         Celix::rsa_dfi
         Celix::log_service
