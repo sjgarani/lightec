@@ -17,6 +17,7 @@ EXTRA_OECMAKE = ""
 
 do_configure_prepend() {
   cd ${WORKDIR}/git
+  git config --global http.sslverify "false"
   git submodule update --init bundles/lightec_api
 }
 
