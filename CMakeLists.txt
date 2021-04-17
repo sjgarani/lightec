@@ -15,7 +15,7 @@ add_celix_container(lightec
         Celix::rsa_discovery
         Celix::rsa_topology_manager
         Celix::rsa_dfi
-        Celix::log_service
+        Celix::log_admin
         lightec_service
     PROPERTIES
         RSA_PORT=18888
