@@ -11,20 +11,12 @@ void led_destroy(led_t *led) {
     free(led);
 }
 
-int led_set_state(led_t *led, int input) {
-    int status = CELIX_SUCCESS;
-
-    led->state = input;
-    logHelper_log(led->log_helper, OSGI_LOGSERVICE_INFO, "Set Led State: %i", led->state);
-
-    return status;
-}
-
-int led_get_state(led_t *led, int *output) {
+int led_set_state(led_t *led, int input, int *output) {
     int status = CELIX_SUCCESS;
 
     *output = led->state;
-    logHelper_log(led->log_helper, OSGI_LOGSERVICE_INFO, "Get Led State: %i", *output);
+    led->state = input;
+    celix_logHelper_info(led->log_helper, "Set Led State: %i", led->state);
 
     return status;
 }
