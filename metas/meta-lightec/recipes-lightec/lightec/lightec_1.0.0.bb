@@ -5,9 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 DEPENDS += "celix"
 
-SRCREV = "${AUTOREV}"
-
-SRC_URI = "git://github.com/sjgarani/lightec.git;branch=main;protocol=git"
+SRC_URI = "git://github.com/sjgarani/lightec.git;protocol=https;branch=main;tag=${PV}"
 
 S = "${WORKDIR}/git"
 

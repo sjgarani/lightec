@@ -1,0 +1,11 @@
+[Unit]
+Description=Lightec systemd service.
+
+[Service]
+Type=forking
+PIDFile=/var/run/lightec.pid
+ExecStart=/bin/sh /usr/bin/lightec.sh
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
