@@ -1,11 +1,11 @@
 [Unit]
 Description=Lightec systemd service.
+After=systemd-networkd-wait-online.service
+Wants=systemd-networkd-wait-online.service
 
 [Service]
-Type=forking
-PIDFile=/var/run/lightec.pid
+Type=simple
 ExecStart=/bin/sh /usr/bin/lightec.sh
-ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=multi-user.target

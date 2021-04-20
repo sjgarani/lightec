@@ -1,6 +1,7 @@
 #!/bin/sh
 
 LOCAL_IP=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+# ifconfig | awk -F':' '/inet addr/&&!/127.0.0.1/{split($2,_," ");print _[1]}'
 
 if [ -z "$LOCAL_IP" ]
 then
